@@ -103,15 +103,13 @@ Below is the minimal parts list used for the LED driver side:
 
 ## Installation
 1. **Clone or download** this repository onto your development machine or Raspberry Pi.
-2. Install required Python packages (some or all of the following may be needed; adjust as necessary):
-   ```bash
-   pip install numpy simpleaudio adafruit-circuitpython-pca9685 PyQt5
-numpy – for audio waveform generation
-simpleaudio – for real-time audio playback
-adafruit-circuitpython-pca9685 – for driving the PCA9685 over I²C
-PyQt5 – for the GUI editor
-You may also need PyQt5-sip and other standard libraries for your Python environment.
-Enable I²C on your Raspberry Pi (if using Pi OS), then wire the PCA9685 accordingly.
+2. Install required Python packages: 
+   numpy – for audio waveform generation
+   simpleaudio – for real-time audio playback
+   adafruit-circuitpython-pca9685 – for driving the PCA9685 over I²C
+   PyQt5 – for the GUI editor
+   You may also need PyQt5-sip and other standard libraries for your Python environment.
+   Enable I²C on your Raspberry Pi (if using Pi OS), then wire the PCA9685 accordingly.
 
 GUI Overview
 Below is a screenshot of the Sequence Editor GUI in "Split" mode (PyQt5):
