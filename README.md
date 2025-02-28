@@ -54,8 +54,9 @@ Below is the minimal parts list used for the LED driver side:
    *(If they are not fully logic-level at 3.3 V, a 5 V level shifter or gate driver may be required)*
 6. **1× External 5 V power supply** (capable of driving the 6 LEDs + the Raspberry Pi if desired)
 7. **6× 2 W, 5 Ω resistors** (one per LED for current limiting)
-8. **6× 220 Ω resistors** (pull-downs for MOSFET gates)
-9. **Wiring** (jumper wires, hookup wire, etc.)
+8. **6x 10KΩ resistors** (pull-downs for MOSFET gates)
+9. **6× 220 Ω resistors** (protects PWM pins)
+10. **Wiring** (jumper wires, hookup wire, etc.)
 
 ### Typical Connections
 - The PCA9685 connects via I²C (SDA, SCL) to the SBC (Raspberry Pi pins).
@@ -72,6 +73,9 @@ Below is the minimal parts list used for the LED driver side:
 3. **Multimeter** (optional but recommended for verifying current/voltage)
 4. **Breadboard** (optional for prototyping)
 5. **3D printer** (optional if you want a custom LED holder or enclosure)
+
+##  Circuit Diagram
+![test](https://github.com/user-attachments/assets/24c5af34-a95f-4e9e-9783-57645dcb86a8)
 
 ---
 
@@ -107,34 +111,10 @@ adafruit-circuitpython-pca9685 – for driving the PCA9685 over I²C
 PyQt5 – for the GUI editor
 You may also need PyQt5-sip and other standard libraries for your Python environment.
 Enable I²C on your Raspberry Pi (if using Pi OS), then wire the PCA9685 accordingly.
-Usage
-1. Running the GUI Editor
-To design a sequence, run:
 
-bash
-Copy
-Edit
-python sequence_editor.py
-In the GUI:
-Click Add Step to create a new step.
-Configure Duration (secs), Waveform, Frequency Start/End, Duty Cycle, and any Patterns (phase/brightness) for each LED group or independent LED.
-Setup Strobe Intensities if you want additional global intensity ramps.
-Audio tab(s) let you configure up to 3 carriers, with volume, frequency ramps, and RFM.
-In Global Settings, you can enable audio, pick binaural or isochronic mode, set a pink noise level, etc.
-Save the sequence to JSON, which will also generate a matching .wav (if audio is enabled).
-2. Generating & Running Sequences
-The editor automatically generates a .wav if audio is enabled, placed alongside your JSON file.
-On your Raspberry Pi (or whichever device is controlling LEDs):
-Transfer the .json (and .wav, if generated) to the device.
-Connect the PCA9685 to I²C pins, wire the LEDs through MOSFETs, etc.
-Run:
-bash
-Copy
-Edit
-python run_on_device_6.py --file your_sequence.json
-The script will read the JSON, set up the PCA9685, and start the LED blinking sequence. If .wav exists, it will play in sync.
 GUI Overview
-Below is a screenshot of the Sequence Editor GUI (PyQt5):
+Below is a screenshot of the Sequence Editor GUI in "Split" mode (PyQt5):
+![image](https://github.com/user-attachments/assets/db44b9f4-8f38-4098-b52d-18616c8a6409)
 
 
 Left Panel: List of steps in the sequence. You can Add, Duplicate, Remove, or Reorder steps.
