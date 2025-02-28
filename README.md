@@ -34,8 +34,9 @@ The result is a flexible platform for exploring entrainment principles. The syst
 
 ## Features
 - **PyQt5-based GUI** (in `sequence_editor.py`) for creating multi-step LED + audio sequences.
-- **Advanced Oscillator Patterns**: Sine, square, plus random frequency modulation and “phase/brightness” patterns (e.g., “Sacred Geometry,” “Fractal Arc,” etc.).
-- **Multiple Audio Modes**: Binaural, isochronic, monaural, plus optional pink noise.
+- **Advanced Oscillator Patterns (work in progress)**: Sine, square, and configurable “phase/brightness/timing” secondary patterns (e.g., “Sacred Geometry,” “Fractal Arc,” etc.).
+- **Random Frequency Generation**: Configurable, slightly changes to the binaural to reduce habituation to a steady-state stimulus. 
+- **Binaural Generation**: Can generate a matching, stepped binaural .wav file, synced to the LED "track" with up to 3 simultaneous binaurals. Supports isochronic tones + pink noise. Plays audio automatically when run on-device, if present. 
 - **Linear Ramps**: Frequencies or duty cycles can transition over the duration of each step.
 - **Strobe Intensity**: Per-step strobe intensity or crossfade.
 - **JSON File Storage**: Save or load complete sequences, including audio settings, to a `.json` file.
